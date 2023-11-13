@@ -4,8 +4,6 @@ using Nox.Yaml.Tests.TestDesigns.Nox.Types.Enums;
 using Nox.Yaml.Tests.TestDesigns.Nox.Types.Extensions;
 using Nox.Yaml.Tests.TestDesigns.Nox.Types.TypeDefinitions;
 using Nox.Yaml.Validation;
-using System.Collections.Concurrent;
-using YamlDotNet.Serialization;
 
 namespace Nox.Yaml.Tests.TestDesigns.Nox.Models;
 
@@ -13,7 +11,7 @@ namespace Nox.Yaml.Tests.TestDesigns.Nox.Models;
 [Title("Fully describes a NOX solution")]
 [Description("Contains all configuration, domain objects and infrastructure declarations that defines a NOX solution. See https://noxorg.dev for more.")]
 [AdditionalProperties(false)]
-public class NoxSolution : YamlConfigNode<NoxSolution,NoxSolution> 
+public class NoxSolution : YamlConfigNode<NoxSolution, NoxSolution>
 {
     [Required]
     [Title("The short name for the solution. Contains no spaces.")]
@@ -27,7 +25,7 @@ public class NoxSolution : YamlConfigNode<NoxSolution,NoxSolution>
     public string PlatformId { get; set; } = null!;
 
     [Title("The version of the NOX solution. Expected a Semantic Version format.")]
-    [Description("Required, but if not defined default 1.0.")]
+    [Description("This value is required, but if not defined it will default to '1.0'.")]
     [Pattern(Constants.VersionStringRegex)]
     public string Version { get; internal set; } = "1.0";
 
@@ -94,7 +92,8 @@ public class NoxSolution : YamlConfigNode<NoxSolution,NoxSolution>
 
         // Set the owner of each entity if it has one
 
-        Domain?.Entities.ToList().ForEach(e => {
+        Domain?.Entities.ToList().ForEach(e =>
+        {
             e.IsOwnedEntity = IsOwnedEntity(e);
             if (e.IsOwnedEntity)
             {
@@ -135,12 +134,12 @@ public class NoxSolution : YamlConfigNode<NoxSolution,NoxSolution>
         return result;
     }
 
-    internal bool HasDataConnectionWithName(string name) 
+    internal bool HasDataConnectionWithName(string name)
         => _dataConnections.ContainsKey(name);
 
-    internal bool IsOwnedEntity(Entity entity) 
+    internal bool IsOwnedEntity(Entity entity)
         => _ownedEntities.ContainsKey(entity.Name);
-   
+
     internal Entity? GetEntityOwner(Entity entity)
     {
         if (_ownedEntities.TryGetValue(entity.Name, out var result))
