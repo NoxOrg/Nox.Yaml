@@ -35,7 +35,7 @@
     },
     "version": {    
       "title": "The version of the NOX solution. Expected a Semantic Version format.",
-      "description": "Required, but if not defined default 1.0.",
+      "description": "This value is required, but if not defined it will default to '1.0'.",
       "oneOf": [
         {
           "type": "string",

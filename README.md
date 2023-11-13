@@ -1,4 +1,4 @@
-# Intoduction
+# Introduction
 
 Nox.Yaml is a dotnet standard wrapper to YamlDotnet that takes the pain out of using YAML configuration files for your projects.
 
@@ -79,3 +79,67 @@ public class NoxSolution : YamlConfigNode<NoxSolution, NoxSolution>
 
 ### UniqueChildProperty
 `[UniqueChildProperty(string propertyKey)]` - ensures that all objects or collections/lists of objects contained in this class are unique for a key if it is contained in those objects. For example `[UniqueChildProperty("Id")]` will ensure that the key named `id` (note the camelCase conversion) is unique for all child objects and collections of objects.
+
+# Multi-file YAML
+
+Nox.YAML supports the organization of YAML definitions in multiple files using the `$ref` keyword. This work for both objects, or objects in an array/list. The file is specified relative to the main file folder.
+
+``` yaml
+# main.yaml
+
+author: Douglas Adams
+
+genre: Sci-Fi
+
+lastKnownAddress:
+  $ref: ./address.yaml
+
+books:
+  - $ref: ./books/thgttg.yaml
+  - $ref: ./books/trateotu.yaml
+  - $ref: ./books/ltuae.yaml
+  - $ref: ./books/slatfatf.yaml
+  - $ref: ./books/mh.yaml
+  - $ref: ./books/aat.yaml 
+```
+
+and then defining the address in a new file
+
+``` yaml
+# address.yaml
+
+street: Arlington Ave
+number: 29 
+city: London
+postCode: N1 7BE
+country: United Kingdom
+```
+
+and the books collection as
+
+``` yaml
+# ./books/thgttg.yaml
+name: The Hitchhiker's Guide to the Galaxy
+year: 1979
+
+# ./books/trateotu.yaml
+name: The Restaurant at the End of the Universe
+year: 1980
+
+# ./books/ltuae.yaml
+name: Life, the Universe and Everything
+year: 1982
+
+# ./books/slatfatf.yaml
+name: So Long, and Thanks for All the Fish
+year: 1984
+
+# ./books/mh.yaml
+name: Mostly Harmless
+year: 1992
+
+# ./books/aat.yaml 
+name: And Another Thing…
+year: 2009    
+
+```
