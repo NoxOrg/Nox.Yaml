@@ -11,7 +11,7 @@ The library features:-
 - Automatic replacement of environment and secret variables from a key vault
 - Advanced defaulting, initialization and validation of variables
 
-# Annotations
+# Attributes
 
 Use annotations to define and document your YAML structure.
 
@@ -41,3 +41,29 @@ public class NoxSolution : YamlConfigNode<NoxSolution, NoxSolution>
     public int InternalValue {get; internal set; }
 }
 ```
+
+## Supported Attributes
+
+`[Title(string title)]` - provides a short intro for classes (objects) and properties.
+
+`[Description(string description)]` - is a more lengthy description of the purpose and usage of the class or property.
+
+`[Pattern(string pattern)]` - specifies a regular expression that describes allowed values for a property.
+
+`[Required]` - is used on properties to indicate that they are - you've guessed it - 'required'.
+
+`[AdditionalProperties(bool isAllowed)]` - specifies whether a YAML can containe properties not specified in the class.
+
+`[GenerateJsonSchema(string filePrefix)]` - indicates if the schema for this class should be stored in it's own file. `filePrefix` defaults to camel cased class name and is optional.
+
+`IfEquals(string propertyName, object value)` - conditionally includes a schema based on the value of another property.
+
+`[AllowVariable]` - specifies that the value in the YAML file can either contain a constant, or may also contain a special YAML variable like `${{ env.path }}` to specify the `PATH` value in the running environment.
+
+`[Ignore]` - indicates that a property should be ignored and not contained in the schema or validation. Typically used for helper properties. `[YamlIgnore]` from the YamDotnet library is also honoured and behaves the same.
+
+`[ExistInCollection(params string[] propertyPathAndKey)]` - is used to validate that a value on a property is contained in a key of a collection (or list) of objects. The last string in the parameter list indicates the key, whilst the path from the root is specified first. Eg. `[ExistsInCollection("Solution","Domain","Entities","Name")]` scans all objects defined in the path Solution.Domain.Entities and ensures it contains an object with key 'Name' that has a matching value.
+
+`[UniqueItemProperties(params string[] propertyKeys)]` - ensures that a list or collection contains unique entries based on one or more keys. Typically used with a single key like "Name" or "Id" but multiple keys can be defined and their concatenation must then be unique across items.
+
+`[UniqueChildProperty(string propertyKey)]` - ensures that all objects or collections/lists of objects contained in this class are unique for a key if it is contained in those objects. For example `[UniqueChildProperty("Id")]` will ensure that the key named `id` (note the camelCase conversion) is unique for all child objects and collections of objects.
