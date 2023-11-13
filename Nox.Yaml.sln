@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5F3F2728-24F3-4DD9-A44A-20957773554A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nox.Yaml", "src\Nox.Yaml\Nox.Yaml.csproj", "{8FAE6C65-EBAA-4688-8C0E-566951C75BD1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{93A7D3C1-1916-4CE4-A9E5-7A2275C88CB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nox.Yaml.Tests", "tests\Nox.Yaml.Tests\Nox.Yaml.Tests.csproj", "{46F7C1BC-F40A-4C94-B06E-BD4183769FE4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8FAE6C65-EBAA-4688-8C0E-566951C75BD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FAE6C65-EBAA-4688-8C0E-566951C75BD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FAE6C65-EBAA-4688-8C0E-566951C75BD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FAE6C65-EBAA-4688-8C0E-566951C75BD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46F7C1BC-F40A-4C94-B06E-BD4183769FE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46F7C1BC-F40A-4C94-B06E-BD4183769FE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46F7C1BC-F40A-4C94-B06E-BD4183769FE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46F7C1BC-F40A-4C94-B06E-BD4183769FE4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8FAE6C65-EBAA-4688-8C0E-566951C75BD1} = {5F3F2728-24F3-4DD9-A44A-20957773554A}
+		{46F7C1BC-F40A-4C94-B06E-BD4183769FE4} = {93A7D3C1-1916-4CE4-A9E5-7A2275C88CB2}
+	EndGlobalSection
+EndGlobal
