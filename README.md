@@ -121,25 +121,29 @@ and the books collection as
 # ./books/thgttg.yaml
 name: The Hitchhiker's Guide to the Galaxy
 year: 1979
-
+```
+``` yaml
 # ./books/trateotu.yaml
 name: The Restaurant at the End of the Universe
 year: 1980
-
+```
+``` yaml
 # ./books/ltuae.yaml
 name: Life, the Universe and Everything
 year: 1982
-
+```
+``` yaml
 # ./books/slatfatf.yaml
 name: So Long, and Thanks for All the Fish
 year: 1984
-
+```
+``` yaml
 # ./books/mh.yaml
 name: Mostly Harmless
 year: 1992
-
+```
+``` yaml
 # ./books/aat.yaml 
 name: And Another Thing…
 year: 2009    
-
 ```
