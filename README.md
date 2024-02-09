@@ -1,5 +1,7 @@
 # Introduction
 
+:no_entry: [DEPRECATED] Active at https://github.com/NoxOrg/Nox
+
 Nox.Yaml is a dotnet standard wrapper to YamlDotnet that takes the pain out of using YAML configuration files for your projects.
 
 The library features:-
